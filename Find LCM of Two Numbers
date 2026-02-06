@@ -1,0 +1,5 @@
+a = 12
+b = 18
+lcm = (a * b) // __import__("math").gcd(a, b)
+
+print("LCM:", lcm)
