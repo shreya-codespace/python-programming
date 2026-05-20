@@ -1,0 +1,30 @@
+import math
+
+def canEat(piles, h, speed):
+    hours = 0
+
+    for bananas in piles:
+        hours += math.ceil(bananas / speed)
+
+    return hours <= h
+
+
+def minEatingSpeed(piles, h):
+    low = 1
+    high = max(piles)
+
+    while low < high:
+        mid = (low + high) // 2
+
+        if canEat(piles, h, mid):
+            high = mid
+        else:
+            low = mid + 1
+
+    return low
+
+
+piles = [3, 6, 7, 11]
+h = 8
+
+print(minEatingSpeed(piles, h))
